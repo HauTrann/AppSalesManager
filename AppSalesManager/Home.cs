@@ -9,11 +9,21 @@ using System.Windows.Forms;
 
 namespace AppSalesManager
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
-        public Form1()
+        public Home()
         {
             InitializeComponent();
+        }
+
+        private void ultraToolbarsManager1_ToolClick(object sender, Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
+        {
+
+        }
+
+        private void ultraButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

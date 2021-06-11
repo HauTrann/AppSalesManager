@@ -15,7 +15,6 @@ C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragisti
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinToolbars.v12.1.xml
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.v12.1.xml
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.csprojAssemblyReference.cache
-C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.Form1.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.Properties.Resources.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.csproj.GenerateResource.cache
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.exe.licenses
@@ -25,3 +24,6 @@ C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesMa
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.pdb
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinListBar.v12.1.dll
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinListBar.v12.1.xml
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.Home.resources
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGrid.v12.1.dll
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGrid.v12.1.xml
