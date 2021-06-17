@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppSalesManager.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,8 @@ namespace AppSalesManager
             InitializeComponent();
             page = "HangHoa";
             ultraGroupBox2.Text = "Danh sách hàng hóa";
+            ultraGrid1.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
+
         }
 
         private void ultraToolbarsManager1_ToolClick(object sender, Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
@@ -26,6 +29,7 @@ namespace AppSalesManager
             {
                 case "HangHoa":
                     ultraGroupBox2.Text = "Danh sách hàng hóa";
+                    LoadMaterialGoods();
                     break;
                 case "NhapKho":
                     ultraGroupBox2.Text = "Danh sách nhập kho";
@@ -73,6 +77,13 @@ namespace AppSalesManager
         {
             MaterialGoods materialGoods = new MaterialGoods();
             materialGoods.ShowDialog();
+        }
+
+        private void LoadMaterialGoods()
+        {
+            AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
+            List<MaterialGood> materialGoods = appSalesManagerEntities1.MaterialGoods.ToList();
+            ultraGrid1.DataSource = materialGoods;
         }
     }
 }
