@@ -27,3 +27,4 @@ C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragisti
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.Home.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGrid.v12.1.dll
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGrid.v12.1.xml
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.MaterialGoods.resources
