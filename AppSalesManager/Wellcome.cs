@@ -5,20 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppSalesManager
 {
-    public partial class MaterialGoods : Form
+    public partial class Wellcome : Form
     {
-        public MaterialGoods()
+        public Wellcome()
         {
             InitializeComponent();
-        }
-
-        private void ultraTextEditor4_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

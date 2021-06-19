@@ -29,3 +29,16 @@ C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragisti
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGrid.v12.1.xml
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.MaterialGoods.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\AppSalesManager.exe.config
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.WaitForm.resources
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.Wellcome.resources
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGanttView.v12.1.dll
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGauge.v12.1.dll
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinListView.v12.1.dll
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinSchedule.v12.1.dll
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGanttView.v12.1.xml
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinGauge.v12.1.xml
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinListView.v12.1.xml
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragistics2.Win.UltraWinSchedule.v12.1.xml
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.Login.resources
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.UserManager.resources
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.FormSaleDetail.resources

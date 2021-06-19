@@ -41,8 +41,12 @@
     <Reference Include="Infragistics2.Shared.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics2.Win.Misc.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinEditors.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinGanttView.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGauge.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinGrid.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinListBar.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinListView.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinSchedule.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics2.Win.UltraWinStatusBar.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics2.Win.UltraWinTabControl.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics2.Win.UltraWinToolbars.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
@@ -63,16 +67,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Home.cs">
+    <Compile Include="Layout\BanHang\FormSaleDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="Layout\BanHang\FormSaleDetail.Designer.cs">
+      <DependentUpon>FormSaleDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\DanhMuc\UserManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\DanhMuc\UserManager.Designer.cs">
+      <DependentUpon>UserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Main\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Main\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaterialGoods.cs">
+    <Compile Include="Layout\Main\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MaterialGoods.Designer.cs">
+    <Compile Include="Layout\Main\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\DanhMuc\MaterialGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\DanhMuc\MaterialGoods.Designer.cs">
       <DependentUpon>MaterialGoods.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Designer.cs">
@@ -82,10 +104,33 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Home.resx">
+    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="Utils\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\WaitForm.designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\WaitWndFun.cs" />
+    <Compile Include="Wellcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wellcome.Designer.cs">
+      <DependentUpon>Wellcome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Layout\BanHang\FormSaleDetail.resx">
+      <DependentUpon>FormSaleDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\DanhMuc\UserManager.resx">
+      <DependentUpon>UserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Main\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaterialGoods.resx">
+    <EmbeddedResource Include="Layout\Main\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\DanhMuc\MaterialGoods.resx">
       <DependentUpon>MaterialGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -99,7 +144,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.Config" />
+    <EmbeddedResource Include="Utils\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wellcome.resx">
+      <DependentUpon>Wellcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -117,6 +170,99 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timg11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Layout\NhapKho\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\hanghoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\home.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\home-shopping-750362.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\nhapkho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1424873317_arrow_right_square_black-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-validated-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-not-validated-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iReset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1437136435_14.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

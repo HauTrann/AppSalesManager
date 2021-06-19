@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="AppSalesManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'AppSalesManager.dbo.MaterialGoods' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+<Schema Namespace="AppSalesManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="MaterialGoods">
     <Key>
       <PropertyRef Name="ID" />
@@ -10,6 +8,37 @@ warning 6002: The table/view 'AppSalesManager.dbo.MaterialGoods' does not have a
     <Property Name="Code" Type="nvarchar" MaxLength="50" />
     <Property Name="Name" Type="nvarchar" MaxLength="500" />
     <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SaleDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalesID" Type="bigint" />
+    <Property Name="MaterialGoodsID" Type="bigint" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="VATAmount" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="Order" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Buyer" Type="nchar" MaxLength="500" />
+    <Property Name="TotalAmont" Type="decimal" Precision="18" Scale="10" Nullable="false" />
+    <Property Name="TotalVAT" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="TotalDiscount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Description" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -21,15 +50,71 @@ warning 6002: The table/view 'AppSalesManager.dbo.MaterialGoods' does not have a
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameLogin" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="1000" />
+    <Property Name="RoleID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_SaleDetails_MaterialGoods">
+    <End Role="MaterialGoods" Type="Self.MaterialGoods" Multiplicity="0..1" />
+    <End Role="SaleDetails" Type="Self.SaleDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialGoods">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SaleDetails">
+        <PropertyRef Name="MaterialGoodsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SaleDetails_Sales">
+    <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
+    <End Role="SaleDetails" Type="Self.SaleDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SaleDetails">
+        <PropertyRef Name="SalesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="AppSalesManagerModelStoreContainer">
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="MaterialGoods" EntityType="Self.MaterialGoods" store:Type="Tables" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
-      <DefiningQuery>SELECT 
-[MaterialGoods].[ID] AS [ID], 
-[MaterialGoods].[Code] AS [Code], 
-[MaterialGoods].[Name] AS [Name], 
-[MaterialGoods].[Description] AS [Description]
-FROM [dbo].[MaterialGoods] AS [MaterialGoods]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="MaterialGoods" EntityType="Self.MaterialGoods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleDetails" EntityType="Self.SaleDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SaleDetails_MaterialGoods" Association="Self.FK_SaleDetails_MaterialGoods">
+      <End Role="MaterialGoods" EntitySet="MaterialGoods" />
+      <End Role="SaleDetails" EntitySet="SaleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaleDetails_Sales" Association="Self.FK_SaleDetails_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="SaleDetails" EntitySet="SaleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

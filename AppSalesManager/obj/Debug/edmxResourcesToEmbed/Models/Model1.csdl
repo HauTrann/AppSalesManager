@@ -18,9 +18,82 @@
     <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SaleDetails" Relationship="AppSalesManagerModel.FK_SaleDetails_MaterialGoods" FromRole="MaterialGood" ToRole="SaleDetail" />
   </EntityType>
-  <EntityContainer Name="AppSalesManagerEntities1">
+  <EntityContainer Name="AppSalesManagerEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="MaterialGoods" EntityType="Self.MaterialGood" />
+    <EntitySet Name="SaleDetails" EntityType="AppSalesManagerModel.SaleDetail" />
+    <EntitySet Name="Sales" EntityType="AppSalesManagerModel.Sale" />
+    <AssociationSet Name="FK_SaleDetails_MaterialGoods" Association="AppSalesManagerModel.FK_SaleDetails_MaterialGoods">
+      <End Role="MaterialGood" EntitySet="MaterialGoods" />
+      <End Role="SaleDetail" EntitySet="SaleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaleDetails_Sales" Association="AppSalesManagerModel.FK_SaleDetails_Sales">
+      <End Role="Sale" EntitySet="Sales" />
+      <End Role="SaleDetail" EntitySet="SaleDetails" />
+    </AssociationSet>
+    <EntitySet Name="Roles" EntityType="AppSalesManagerModel.Role" />
+    <EntitySet Name="Users" EntityType="AppSalesManagerModel.User" />
+    <AssociationSet Name="FK_User_Role" Association="AppSalesManagerModel.FK_User_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="SaleDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="VATAmount" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="Order" Type="Int64" />
+    <NavigationProperty Name="MaterialGood" Relationship="AppSalesManagerModel.FK_SaleDetails_MaterialGoods" FromRole="SaleDetail" ToRole="MaterialGood" />
+    <NavigationProperty Name="Sale" Relationship="AppSalesManagerModel.FK_SaleDetails_Sales" FromRole="SaleDetail" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Buyer" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+    <Property Name="TotalAmont" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="TotalVAT" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="TotalDiscount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="SaleDetails" Relationship="AppSalesManagerModel.FK_SaleDetails_Sales" FromRole="Sale" ToRole="SaleDetail" />
+  </EntityType>
+  <Association Name="FK_SaleDetails_MaterialGoods">
+    <End Type="AppSalesManagerModel.MaterialGood" Role="MaterialGood" Multiplicity="0..1" />
+    <End Type="AppSalesManagerModel.SaleDetail" Role="SaleDetail" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_SaleDetails_Sales">
+    <End Type="AppSalesManagerModel.Sale" Role="Sale" Multiplicity="0..1" />
+    <End Type="AppSalesManagerModel.SaleDetail" Role="SaleDetail" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="AppSalesManagerModel.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameLogin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Role" Relationship="AppSalesManagerModel.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_User_Role">
+    <End Type="AppSalesManagerModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="AppSalesManagerModel.User" Role="User" Multiplicity="*" />
+  </Association>
 </Schema>

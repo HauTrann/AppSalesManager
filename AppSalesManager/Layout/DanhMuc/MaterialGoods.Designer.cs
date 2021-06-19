@@ -30,30 +30,32 @@
         {
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaterialGoods));
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaterialGoods));
             this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel3 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel4 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ultraTextEditor4 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDescription = new Infragistics.Win.FormattedLinkLabel.UltraFormattedTextEditor();
+            this.txtName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraTextEditor3 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor2 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtCode = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtID = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraLabel7 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel6 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel5 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraButton1 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraButton2 = new Infragistics.Win.Misc.UltraButton();
+            this.Oke = new Infragistics.Win.Misc.UltraButton();
+            this.Close = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel1.ClientArea.SuspendLayout();
             this.ultraPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
             this.ultraGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             this.SuspendLayout();
             // 
             // ultraPanel1
@@ -70,6 +72,7 @@
             // 
             // ultraLabel1
             // 
+            appearance1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             appearance1.FontData.BoldAsString = "True";
             appearance1.TextHAlignAsString = "Center";
             appearance1.TextVAlignAsString = "Middle";
@@ -107,10 +110,12 @@
             // 
             // ultraGroupBox1
             // 
-            this.ultraGroupBox1.Controls.Add(this.ultraTextEditor4);
+            this.ultraGroupBox1.Controls.Add(this.txtDescription);
+            this.ultraGroupBox1.Controls.Add(this.txtName);
             this.ultraGroupBox1.Controls.Add(this.ultraTextEditor3);
-            this.ultraGroupBox1.Controls.Add(this.ultraTextEditor2);
-            this.ultraGroupBox1.Controls.Add(this.ultraTextEditor1);
+            this.ultraGroupBox1.Controls.Add(this.txtCode);
+            this.ultraGroupBox1.Controls.Add(this.txtID);
+            this.ultraGroupBox1.Controls.Add(this.ultraLabel7);
             this.ultraGroupBox1.Controls.Add(this.ultraLabel6);
             this.ultraGroupBox1.Controls.Add(this.ultraLabel5);
             this.ultraGroupBox1.Controls.Add(this.ultraLabel4);
@@ -121,13 +126,21 @@
             this.ultraGroupBox1.TabIndex = 4;
             this.ultraGroupBox1.Text = "Thông tin chi tiết";
             // 
-            // ultraTextEditor4
+            // txtDescription
             // 
-            this.ultraTextEditor4.Location = new System.Drawing.Point(523, 24);
-            this.ultraTextEditor4.Name = "ultraTextEditor4";
-            this.ultraTextEditor4.Size = new System.Drawing.Size(92, 21);
-            this.ultraTextEditor4.TabIndex = 4;
-            this.ultraTextEditor4.ValueChanged += new System.EventHandler(this.ultraTextEditor4_ValueChanged);
+            this.txtDescription.Location = new System.Drawing.Point(97, 51);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(518, 100);
+            this.txtDescription.TabIndex = 5;
+            this.txtDescription.Value = "";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(523, 24);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(92, 21);
+            this.txtName.TabIndex = 4;
+            this.txtName.ValueChanged += new System.EventHandler(this.ultraTextEditor4_ValueChanged);
             // 
             // ultraTextEditor3
             // 
@@ -137,19 +150,29 @@
             this.ultraTextEditor3.TabIndex = 4;
             this.ultraTextEditor3.Text = "ultraTextEditor1";
             // 
-            // ultraTextEditor2
+            // txtCode
             // 
-            this.ultraTextEditor2.Location = new System.Drawing.Point(310, 24);
-            this.ultraTextEditor2.Name = "ultraTextEditor2";
-            this.ultraTextEditor2.Size = new System.Drawing.Size(92, 21);
-            this.ultraTextEditor2.TabIndex = 4;
+            this.txtCode.Location = new System.Drawing.Point(310, 24);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(92, 21);
+            this.txtCode.TabIndex = 4;
             // 
-            // ultraTextEditor1
+            // txtID
             // 
-            this.ultraTextEditor1.Location = new System.Drawing.Point(97, 24);
-            this.ultraTextEditor1.Name = "ultraTextEditor1";
-            this.ultraTextEditor1.Size = new System.Drawing.Size(92, 21);
-            this.ultraTextEditor1.TabIndex = 4;
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(97, 24);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(92, 21);
+            this.txtID.TabIndex = 4;
+            // 
+            // ultraLabel7
+            // 
+            this.ultraLabel7.Location = new System.Drawing.Point(37, 51);
+            this.ultraLabel7.Name = "ultraLabel7";
+            this.ultraLabel7.Size = new System.Drawing.Size(54, 17);
+            this.ultraLabel7.TabIndex = 3;
+            this.ultraLabel7.Text = "Mô tả";
+            this.ultraLabel7.Click += new System.EventHandler(this.ultraLabel7_Click_1);
             // 
             // ultraLabel6
             // 
@@ -167,49 +190,53 @@
             this.ultraLabel5.TabIndex = 3;
             this.ultraLabel5.Text = "Mã hàng hóa";
             // 
-            // ultraButton1
+            // Oke
             // 
-            appearance2.Image = ((object)(resources.GetObject("appearance2.Image")));
-            this.ultraButton1.Appearance = appearance2;
-            this.ultraButton1.Location = new System.Drawing.Point(579, 217);
-            this.ultraButton1.Name = "ultraButton1";
-            this.ultraButton1.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton1.TabIndex = 5;
-            this.ultraButton1.Text = "Đông ý";
+            appearance2.Image = global::AppSalesManager.Properties.Resources.apply_32;
+            this.Oke.Appearance = appearance2;
+            this.Oke.Location = new System.Drawing.Point(579, 217);
+            this.Oke.Name = "Oke";
+            this.Oke.Size = new System.Drawing.Size(75, 23);
+            this.Oke.TabIndex = 5;
+            this.Oke.Text = "Đông ý";
+            this.Oke.Click += new System.EventHandler(this.Oke_Click);
             // 
-            // ultraButton2
+            // Close
             // 
-            appearance3.Image = ((object)(resources.GetObject("appearance3.Image")));
-            this.ultraButton2.Appearance = appearance3;
-            this.ultraButton2.Location = new System.Drawing.Point(498, 217);
-            this.ultraButton2.Name = "ultraButton2";
-            this.ultraButton2.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton2.TabIndex = 5;
-            this.ultraButton2.Text = "Hủy";
+            appearance3.Image = global::AppSalesManager.Properties.Resources.close1;
+            this.Close.Appearance = appearance3;
+            this.Close.Location = new System.Drawing.Point(498, 217);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(75, 23);
+            this.Close.TabIndex = 5;
+            this.Close.Text = "Hủy";
+            this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
             // MaterialGoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(666, 244);
-            this.Controls.Add(this.ultraButton2);
-            this.Controls.Add(this.ultraButton1);
+            this.Controls.Add(this.Close);
+            this.Controls.Add(this.Oke);
             this.Controls.Add(this.ultraGroupBox1);
             this.Controls.Add(this.ultraLabel3);
             this.Controls.Add(this.ultraLabel2);
             this.Controls.Add(this.ultraPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MaterialGoods";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MaterialGoods";
             this.ultraPanel1.ClientArea.ResumeLayout(false);
             this.ultraPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
             this.ultraGroupBox1.ResumeLayout(false);
             this.ultraGroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,13 +249,15 @@
         private Infragistics.Win.Misc.UltraLabel ultraLabel3;
         private Infragistics.Win.Misc.UltraLabel ultraLabel4;
         private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor4;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor txtName;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor3;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor2;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor txtCode;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor txtID;
         private Infragistics.Win.Misc.UltraLabel ultraLabel6;
         private Infragistics.Win.Misc.UltraLabel ultraLabel5;
-        private Infragistics.Win.Misc.UltraButton ultraButton1;
-        private Infragistics.Win.Misc.UltraButton ultraButton2;
+        private Infragistics.Win.Misc.UltraButton Oke;
+        private Infragistics.Win.Misc.UltraButton Close;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel7;
+        private Infragistics.Win.FormattedLinkLabel.UltraFormattedTextEditor txtDescription;
     }
 }

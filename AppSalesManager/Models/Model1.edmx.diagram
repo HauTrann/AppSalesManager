@@ -5,8 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d7d303fe7d8a4089967d3a4a8b0927ae" Name="Diagram1">
-        <EntityTypeShape EntityType="AppSalesManagerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AppSalesManagerModel.MaterialGood" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppSalesManagerModel.sysdiagram" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppSalesManagerModel.MaterialGood" Width="1.5" PointX="5.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppSalesManagerModel.SaleDetail" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AppSalesManagerModel.Sale" Width="1.5" PointX="10.125" PointY="4.25" />
+        <AssociationConnector Association="AppSalesManagerModel.FK_SaleDetails_MaterialGoods" />
+        <AssociationConnector Association="AppSalesManagerModel.FK_SaleDetails_Sales" />
+        <EntityTypeShape EntityType="AppSalesManagerModel.Role" Width="1.5" PointX="1" PointY="3.75" />
+        <EntityTypeShape EntityType="AppSalesManagerModel.User" Width="1.5" PointX="4.75" PointY="3.875" />
+        <AssociationConnector Association="AppSalesManagerModel.FK_User_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
