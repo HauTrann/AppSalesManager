@@ -20,6 +20,10 @@ namespace AppSalesManager
             this.status = status;
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            List<Role> Roles = appSalesManagerEntities1.Roles.ToList();
+            ultraComboRole.DataSource = Roles;
+            this.ultraComboRole.ValueMember = "ID";
+            this.ultraComboRole.DisplayMember = "RoleName";
             if (status.Equals(Utils.VIEW))
             {
 
@@ -30,10 +34,11 @@ namespace AppSalesManager
                 if (user != null)
                 {
                     txtNameLogin.Text = user.NameLogin;
-                    ultraLabelUserID.Text = "UserID : " + user.ID.ToString();
+                    txtuserID.Text = user.ID.ToString();
                     txtAddress.Text = user.Address;
                     txtEmail.Text = user.Email;
                     ultraLabelRole.Text = "ROLE : " + user.Role.RoleName;
+                    ultraComboRole.Value = user.Role.ID;
                 }
             }
             else

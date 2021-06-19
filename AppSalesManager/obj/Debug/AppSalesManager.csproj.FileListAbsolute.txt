@@ -42,3 +42,4 @@ C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\Infragisti
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.Login.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.UserManager.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.FormSaleDetail.resources
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.FormRSInwardDetail.resources

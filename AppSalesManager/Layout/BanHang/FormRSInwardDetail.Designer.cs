@@ -1,6 +1,6 @@
 ﻿namespace AppSalesManager
 {
-    partial class FormSaleDetail
+    partial class FormRSInwardDetail
     {
         /// <summary>
         /// Required designer variable.

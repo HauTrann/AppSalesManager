@@ -21,6 +21,7 @@ namespace AppSalesManager
         {
             InitializeComponent();
             page = "HangHoa";
+            labelPage.Text = "HÀNG HÓA";
             Utils.configUgrid(ultraGrid1);
             Utils.configUgrid(ultraGrid2);
             waitForm.Show(this);
@@ -82,13 +83,15 @@ namespace AppSalesManager
                     AddNewMaterialGoods();
                     break;
                 case "NhapKho":
-                    AddNewSales();
+                    AddNewToWarehouse();
                     break;
                 case "BanHang":
+                    AddNewSales();
                     break;
                 case "BaoCao":
                     break;
                 case "UserManager":
+                    AddNewUser();
                     break;
                 default:
                     break;
@@ -103,10 +106,8 @@ namespace AppSalesManager
                     EditMaterialGoods();
                     break;
                 case "NhapKho":
-                    AddNewToWarehouse();
                     break;
                 case "BanHang":
-                    AddNewSales();
                     break;
                 case "BaoCao":
                     break;
@@ -130,6 +131,18 @@ namespace AppSalesManager
             }
         }
 
+        private void AddNewUser()
+        {
+            User user = ultraGrid1.ActiveRow.ListObject as User;
+            int index = ultraGrid1.ActiveRow.Index;
+            if (user != null)
+            {
+                UserManager userManager = new UserManager(Utils.ADD);
+                userManager.ShowDialog(this);
+                LoadUsers(index);
+            }
+        }
+
         private void LoadRSInward(int index = -1)
         {
             ultraSplitter1.Visible = true;
@@ -137,6 +150,7 @@ namespace AppSalesManager
             AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
             List<Sale> sales = appSalesManagerEntities1.Sales.ToList();
             ultraGrid1.DataSource = sales;
+            ultraGrid2.DataSource = new SaleDetail();
             if (index != -1)
             {
                 ultraGrid1.Rows[index].Activate();
@@ -150,6 +164,7 @@ namespace AppSalesManager
             AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
             List<Sale> sales = appSalesManagerEntities1.Sales.ToList();
             ultraGrid1.DataSource = sales;
+            ultraGrid2.DataSource = new SaleDetail();
             if (index != -1)
             {
                 ultraGrid1.Rows[index].Activate();
@@ -172,7 +187,8 @@ namespace AppSalesManager
 
         private void AddNewToWarehouse()
         {
-
+            FormRSInwardDetail formRSInward = new FormRSInwardDetail(Utils.ADD);
+            formRSInward.ShowDialog(this);
         }
 
         private void LoadMaterialGoods(int index = -1)
@@ -215,7 +231,45 @@ namespace AppSalesManager
 
         private void Delete_Click(object sender, EventArgs e)
         {
+            if (DialogResult.Yes == MessageBox.Show("Bạn muốn xóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                switch (page)
+                {
+                    case "HangHoa":
+                        DeleteMaterialGoods();
+                        break;
+                    case "NhapKho":
+                        break;
+                    case "BanHang":
+                        break;
+                    case "BaoCao":
+                        break;
+                    case "UserManager":
+                        DeleteUser();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 
+        private void DeleteMaterialGoods()
+        {
+
+        }
+
+        private void DeleteUser()
+        {
+            User user = ultraGrid1.ActiveRow.ListObject as User;
+            int index = ultraGrid1.ActiveRow.Index;
+            if (user != null)
+            {
+                AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
+                User userDelete = appSalesManagerEntities1.Users.FirstOrDefault(n => n.ID == user.ID);
+                appSalesManagerEntities1.Users.DeleteObject(userDelete);
+                appSalesManagerEntities1.SaveChanges();
+                LoadUsers();
+            }
         }
 
         private void View_Click(object sender, EventArgs e)
@@ -235,6 +289,9 @@ namespace AppSalesManager
                 case "BanHang":
                     break;
                 case "BaoCao":
+                    break;
+                case "UserManager":
+                    EditUser();
                     break;
                 default:
                     break;

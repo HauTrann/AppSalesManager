@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace AppSalesManager
 {
-    public partial class FormSaleDetail : Form
+    public partial class FormRSInwardDetail : Form
     {
         AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
         private string status;
         User user;
         List<SaleDetail> saleDetails = new List<SaleDetail>();
-        public FormSaleDetail(string status, long id = -1)
+        public FormRSInwardDetail(string status, long id = -1)
         {
             this.status = status;
             InitializeComponent();
