@@ -63,34 +63,55 @@ namespace AppSalesManager
             {
                 if (!string.IsNullOrEmpty(txtPassword.Text))
                 {
-                    user.NameLogin = txtNameLogin.Text;
-                    user.Password = Utils.sha256(txtPassword.Text);
-                    user.Email = txtEmail.Text;
-                    user.Address = txtAddress.Text;
+                    if (ultraComboRole.Value == null)
+                    {
+                        MessageBox.Show("Chưa phân quyền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        user.NameLogin = txtNameLogin.Text;
+                        user.Password = Utils.sha256(txtPassword.Text);
+                        user.Email = txtEmail.Text;
+                        user.RoleID = ultraComboRole.Value.ToString();
+                        user.Address = txtAddress.Text;
+                        appSalesManagerEntities1.SaveChanges();
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Chưa nhập mật khẩu");
+                    MessageBox.Show("Chưa nhập mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
             else
             {
                 if (!string.IsNullOrEmpty(txtPassword.Text))
                 {
-
-                    user.NameLogin = txtNameLogin.Text;
-                    user.Password = Utils.sha256(txtPassword.Text);
-                    user.Email = txtEmail.Text;
-                    user.Address = txtAddress.Text;
-                    appSalesManagerEntities1.Users.AddObject(user);
+                    if (ultraComboRole.Value == null)
+                    {
+                        MessageBox.Show("Chưa phân quyền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        user.NameLogin = txtNameLogin.Text;
+                        user.Password = Utils.sha256(txtPassword.Text);
+                        user.Email = txtEmail.Text;
+                        user.Address = txtAddress.Text;
+                        user.RoleID = ultraComboRole.Value.ToString();
+                        appSalesManagerEntities1.Users.Add(user);
+                        appSalesManagerEntities1.SaveChanges();
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Chưa nhập mật khẩu");
+                    MessageBox.Show("Chưa nhập mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            appSalesManagerEntities1.SaveChanges();
-            this.Close();
+
         }
 
         private void ultraLabel7_Click(object sender, EventArgs e)

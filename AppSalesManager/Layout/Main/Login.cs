@@ -41,7 +41,7 @@ namespace AppSalesManager
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

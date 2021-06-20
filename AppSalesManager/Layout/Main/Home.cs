@@ -121,7 +121,7 @@ namespace AppSalesManager
 
         private void EditUser()
         {
-            User user = ultraGrid1.ActiveRow.ListObject as User;
+            UserView user = ultraGrid1.ActiveRow.ListObject as UserView;
             int index = ultraGrid1.ActiveRow.Index;
             if (user != null)
             {
@@ -133,7 +133,7 @@ namespace AppSalesManager
 
         private void AddNewUser()
         {
-            User user = ultraGrid1.ActiveRow.ListObject as User;
+            UserView user = ultraGrid1.ActiveRow.ListObject as UserView;
             int index = ultraGrid1.ActiveRow.Index;
             if (user != null)
             {
@@ -260,13 +260,19 @@ namespace AppSalesManager
 
         private void DeleteUser()
         {
-            User user = ultraGrid1.ActiveRow.ListObject as User;
+            AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
+            UserView user = ultraGrid1.ActiveRow.ListObject as UserView;
+            User user1 = appSalesManagerEntities1.Users.FirstOrDefault(n => n.ID == user.ID);
+            if (user1.RoleID == "ADMIN" && user1.ID == 1)
+            {
+                MessageBox.Show("Không được xóa Admin hệ thống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int index = ultraGrid1.ActiveRow.Index;
             if (user != null)
             {
-                AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
                 User userDelete = appSalesManagerEntities1.Users.FirstOrDefault(n => n.ID == user.ID);
-                appSalesManagerEntities1.Users.DeleteObject(userDelete);
+                appSalesManagerEntities1.Users.Remove(userDelete);
                 appSalesManagerEntities1.SaveChanges();
                 LoadUsers();
             }

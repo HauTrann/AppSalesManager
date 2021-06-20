@@ -43,3 +43,5 @@ C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesMa
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.UserManager.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.FormSaleDetail.resources
 C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\obj\Debug\AppSalesManager.FormRSInwardDetail.resources
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\EntityFramework.dll
+C:\Users\M4800\source\repos\AppSalesManager\AppSalesManager\bin\Debug\EntityFramework.xml

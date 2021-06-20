@@ -63,7 +63,7 @@ namespace AppSalesManager
                 materialGood.Code = txtCode.Text;
                 materialGood.Name = txtName.Text;
                 materialGood.Description = txtDescription.Text;
-                appSalesManagerEntities1.MaterialGoods.AddObject(materialGood);
+                appSalesManagerEntities1.MaterialGoods.Add(materialGood);
             }
             appSalesManagerEntities1.SaveChanges();
             this.Close();
