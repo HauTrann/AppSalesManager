@@ -298,9 +298,9 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 97);
+            this.panel3.Location = new System.Drawing.Point(0, 72);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1040, 534);
+            this.panel3.Size = new System.Drawing.Size(1040, 559);
             this.panel3.TabIndex = 7;
             // 
             // panel5
@@ -311,14 +311,14 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 36);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1040, 498);
+            this.panel5.Size = new System.Drawing.Size(1040, 523);
             this.panel5.TabIndex = 8;
             // 
             // ultraSplitter1
             // 
             this.ultraSplitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ultraSplitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraSplitter1.Location = new System.Drawing.Point(0, 263);
+            this.ultraSplitter1.Location = new System.Drawing.Point(0, 288);
             this.ultraSplitter1.Name = "ultraSplitter1";
             this.ultraSplitter1.RestoreExtent = 229;
             this.ultraSplitter1.Size = new System.Drawing.Size(1040, 6);
@@ -330,7 +330,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1040, 269);
+            this.panel7.Size = new System.Drawing.Size(1040, 294);
             this.panel7.TabIndex = 15;
             // 
             // ultraGrid1
@@ -392,7 +392,7 @@
             this.ultraGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ultraGrid1.Location = new System.Drawing.Point(0, 0);
             this.ultraGrid1.Name = "ultraGrid1";
-            this.ultraGrid1.Size = new System.Drawing.Size(1040, 269);
+            this.ultraGrid1.Size = new System.Drawing.Size(1040, 294);
             this.ultraGrid1.TabIndex = 14;
             this.ultraGrid1.Text = "ultraGrid1";
             this.ultraGrid1.DoubleClickRow += new Infragistics.Win.UltraWinGrid.DoubleClickRowEventHandler(this.ultraGrid1_DoubleClickRow);
@@ -401,7 +401,7 @@
             // 
             this.panel6.Controls.Add(this.ultraTabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 269);
+            this.panel6.Location = new System.Drawing.Point(0, 294);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1040, 229);
             this.panel6.TabIndex = 12;
@@ -481,7 +481,7 @@
             // 
             this.panel2.Controls.Add(this.labelPage);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 65);
+            this.panel2.Location = new System.Drawing.Point(0, 40);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1040, 32);
             this.panel2.TabIndex = 6;
@@ -508,9 +508,9 @@
             this._panel1_Toolbars_Dock_Area_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             this._panel1_Toolbars_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Left;
             this._panel1_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._panel1_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 65);
+            this._panel1_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 40);
             this._panel1_Toolbars_Dock_Area_Left.Name = "_panel1_Toolbars_Dock_Area_Left";
-            this._panel1_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 566);
+            this._panel1_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 591);
             this._panel1_Toolbars_Dock_Area_Left.ToolbarsManager = this.ultraToolbarsManager1;
             // 
             // _panel1_Toolbars_Dock_Area_Right
@@ -519,9 +519,9 @@
             this._panel1_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             this._panel1_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right;
             this._panel1_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._panel1_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(1040, 65);
+            this._panel1_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(1040, 40);
             this._panel1_Toolbars_Dock_Area_Right.Name = "_panel1_Toolbars_Dock_Area_Right";
-            this._panel1_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 566);
+            this._panel1_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 591);
             this._panel1_Toolbars_Dock_Area_Right.ToolbarsManager = this.ultraToolbarsManager1;
             // 
             // _panel1_Toolbars_Dock_Area_Bottom
@@ -543,7 +543,7 @@
             this._panel1_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._panel1_Toolbars_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
             this._panel1_Toolbars_Dock_Area_Top.Name = "_panel1_Toolbars_Dock_Area_Top";
-            this._panel1_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(1040, 65);
+            this._panel1_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(1040, 40);
             this._panel1_Toolbars_Dock_Area_Top.ToolbarsManager = this.ultraToolbarsManager1;
             // 
             // cms4Grid

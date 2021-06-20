@@ -16,6 +16,30 @@
     <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="RSInward">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RSInwardNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Seller" Type="nvarchar" MaxLength="500" />
+    <Property Name="RSInwardDate" Type="datetime" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="TotalVAT" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="TotalDiscount" Type="decimal" Precision="18" Scale="10" />
+  </EntityType>
+  <EntityType Name="RSInwardDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RSInwardID" Type="bigint" />
+    <Property Name="MaterialGoodsID" Type="bigint" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="VATAmount" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="Order" Type="bigint" />
+  </EntityType>
   <EntityType Name="SaleDetails">
     <Key>
       <PropertyRef Name="ID" />
@@ -39,6 +63,7 @@
     <Property Name="TotalVAT" Type="decimal" Precision="18" Scale="10" />
     <Property Name="TotalDiscount" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Description" Type="nchar" MaxLength="10" />
+    <Property Name="SaleDate" Type="datetime" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -61,6 +86,43 @@
     <Property Name="Email" Type="nvarchar" MaxLength="500" />
     <Property Name="Address" Type="nvarchar" MaxLength="500" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AppSalesManager.dbo.UserView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserView">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="NameLogin" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="ROLENAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_RSInwardDetail_MaterialGoods">
+    <End Role="MaterialGoods" Type="Self.MaterialGoods" Multiplicity="0..1" />
+    <End Role="RSInwardDetail" Type="Self.RSInwardDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialGoods">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RSInwardDetail">
+        <PropertyRef Name="MaterialGoodsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RSInwardDetail_RSInward">
+    <End Role="RSInward" Type="Self.RSInward" Multiplicity="0..1" />
+    <End Role="RSInwardDetail" Type="Self.RSInwardDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RSInward">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RSInwardDetail">
+        <PropertyRef Name="RSInwardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SaleDetails_MaterialGoods">
     <End Role="MaterialGoods" Type="Self.MaterialGoods" Multiplicity="0..1" />
     <End Role="SaleDetails" Type="Self.SaleDetails" Multiplicity="*" />
@@ -100,10 +162,30 @@
   <EntityContainer Name="AppSalesManagerModelStoreContainer">
     <EntitySet Name="MaterialGoods" EntityType="Self.MaterialGoods" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RSInward" EntityType="Self.RSInward" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RSInwardDetail" EntityType="Self.RSInwardDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SaleDetails" EntityType="Self.SaleDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserView" EntityType="Self.UserView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[UserView].[ID] AS [ID], 
+[UserView].[NameLogin] AS [NameLogin], 
+[UserView].[Password] AS [Password], 
+[UserView].[Email] AS [Email], 
+[UserView].[Address] AS [Address], 
+[UserView].[ROLENAME] AS [ROLENAME]
+FROM [dbo].[UserView] AS [UserView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_RSInwardDetail_MaterialGoods" Association="Self.FK_RSInwardDetail_MaterialGoods">
+      <End Role="MaterialGoods" EntitySet="MaterialGoods" />
+      <End Role="RSInwardDetail" EntitySet="RSInwardDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RSInwardDetail_RSInward" Association="Self.FK_RSInwardDetail_RSInward">
+      <End Role="RSInward" EntitySet="RSInward" />
+      <End Role="RSInwardDetail" EntitySet="RSInwardDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK_SaleDetails_MaterialGoods" Association="Self.FK_SaleDetails_MaterialGoods">
       <End Role="MaterialGoods" EntitySet="MaterialGoods" />
       <End Role="SaleDetails" EntitySet="SaleDetails" />

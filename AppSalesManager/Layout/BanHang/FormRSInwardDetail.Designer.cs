@@ -44,7 +44,7 @@
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSaleDetail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRSInwardDetail));
             this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.ultraGrid1 = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
@@ -53,6 +53,7 @@
             this.Close = new Infragistics.Win.Misc.UltraButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ultraSplitter1 = new Infragistics.Win.Misc.UltraSplitter();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.ultraTextEditor2 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -65,7 +66,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.ultraTabControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
-            this.ultraSplitter1 = new Infragistics.Win.Misc.UltraSplitter();
             this.ultraTabPageControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGrid1)).BeginInit();
             this.ultraPanel1.ClientArea.SuspendLayout();
@@ -176,7 +176,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(655, 37);
             this.txtID.TabIndex = 0;
-            this.txtID.Text = "BÁN HÀNG";
+            this.txtID.Text = "NHẬP KHO";
             // 
             // Oke
             // 
@@ -222,6 +222,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(655, 458);
             this.panel2.TabIndex = 7;
+            // 
+            // ultraSplitter1
+            // 
+            this.ultraSplitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ultraSplitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraSplitter1.Location = new System.Drawing.Point(0, 128);
+            this.ultraSplitter1.Name = "ultraSplitter1";
+            this.ultraSplitter1.RestoreExtent = 0;
+            this.ultraSplitter1.Size = new System.Drawing.Size(655, 6);
+            this.ultraSplitter1.TabIndex = 2;
             // 
             // panel4
             // 
@@ -289,7 +299,7 @@
             this.ultraLabel6.Name = "ultraLabel6";
             this.ultraLabel6.Size = new System.Drawing.Size(69, 13);
             this.ultraLabel6.TabIndex = 17;
-            this.ultraLabel6.Text = "Ngày bán";
+            this.ultraLabel6.Text = "Ngày mua";
             // 
             // ultraLabel5
             // 
@@ -297,7 +307,7 @@
             this.ultraLabel5.Name = "ultraLabel5";
             this.ultraLabel5.Size = new System.Drawing.Size(109, 13);
             this.ultraLabel5.TabIndex = 20;
-            this.ultraLabel5.Text = "Tên người mua";
+            this.ultraLabel5.Text = "Tên người bán";
             // 
             // panel3
             // 
@@ -329,17 +339,7 @@
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
             this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(651, 298);
             // 
-            // ultraSplitter1
-            // 
-            this.ultraSplitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ultraSplitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraSplitter1.Location = new System.Drawing.Point(0, 128);
-            this.ultraSplitter1.Name = "ultraSplitter1";
-            this.ultraSplitter1.RestoreExtent = 0;
-            this.ultraSplitter1.Size = new System.Drawing.Size(655, 6);
-            this.ultraSplitter1.TabIndex = 2;
-            // 
-            // FormSaleDetail
+            // FormRSInwardDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -349,7 +349,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ultraPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormSaleDetail";
+            this.Name = "FormRSInwardDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bán Hàng";
             this.ultraTabPageControl1.ResumeLayout(false);

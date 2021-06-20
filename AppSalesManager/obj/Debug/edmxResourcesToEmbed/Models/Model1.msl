@@ -36,6 +36,7 @@
     <EntitySetMapping Name="Sales">
       <EntityTypeMapping TypeName="AppSalesManagerModel.Sale">
         <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
           <ScalarProperty Name="TotalVAT" ColumnName="TotalVAT" />
@@ -91,6 +92,60 @@
         <ScalarProperty Name="ID" ColumnName="RoleID" />
       </EndProperty>
       <Condition ColumnName="RoleID" IsNull="false" />
+    </AssociationSetMapping>
+    <EntitySetMapping Name="RSInwards">
+      <EntityTypeMapping TypeName="AppSalesManagerModel.RSInward">
+        <MappingFragment StoreEntitySet="RSInward">
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="TotalVAT" ColumnName="TotalVAT" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="RSInwardDate" ColumnName="RSInwardDate" />
+          <ScalarProperty Name="Seller" ColumnName="Seller" />
+          <ScalarProperty Name="RSInwardNo" ColumnName="RSInwardNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RSInwardDetails">
+      <EntityTypeMapping TypeName="AppSalesManagerModel.RSInwardDetail">
+        <MappingFragment StoreEntitySet="RSInwardDetail">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserViews">
+      <EntityTypeMapping TypeName="AppSalesManagerModel.UserView">
+        <MappingFragment StoreEntitySet="UserView">
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NameLogin" ColumnName="NameLogin" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_RSInwardDetail_MaterialGoods" TypeName="AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods" StoreEntitySet="RSInwardDetail">
+      <EndProperty Name="RSInwardDetail">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+      <EndProperty Name="MaterialGood">
+        <ScalarProperty Name="ID" ColumnName="MaterialGoodsID" />
+      </EndProperty>
+      <Condition ColumnName="MaterialGoodsID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_RSInwardDetail_RSInward" TypeName="AppSalesManagerModel.FK_RSInwardDetail_RSInward" StoreEntitySet="RSInwardDetail">
+      <EndProperty Name="RSInwardDetail">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+      <EndProperty Name="RSInward">
+        <ScalarProperty Name="ID" ColumnName="RSInwardID" />
+      </EndProperty>
+      <Condition ColumnName="RSInwardID" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

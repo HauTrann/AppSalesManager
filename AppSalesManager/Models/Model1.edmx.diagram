@@ -14,6 +14,8 @@
         <EntityTypeShape EntityType="AppSalesManagerModel.Role" Width="1.5" PointX="1" PointY="3.75" />
         <EntityTypeShape EntityType="AppSalesManagerModel.User" Width="1.5" PointX="4.75" PointY="3.875" />
         <AssociationConnector Association="AppSalesManagerModel.FK_User_Role" />
+        <AssociationConnector Association="AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods" />
+        <AssociationConnector Association="AppSalesManagerModel.FK_RSInwardDetail_RSInward" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

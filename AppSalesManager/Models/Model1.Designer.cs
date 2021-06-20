@@ -22,6 +22,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("AppSalesManagerModel", "FK_SaleDetails_MaterialGoods", "MaterialGood", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AppSalesManager.Models.MaterialGood), "SaleDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AppSalesManager.Models.SaleDetail))]
 [assembly: EdmRelationshipAttribute("AppSalesManagerModel", "FK_SaleDetails_Sales", "Sale", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AppSalesManager.Models.Sale), "SaleDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AppSalesManager.Models.SaleDetail))]
 [assembly: EdmRelationshipAttribute("AppSalesManagerModel", "FK_User_Role", "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AppSalesManager.Models.Role), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AppSalesManager.Models.User))]
+[assembly: EdmRelationshipAttribute("AppSalesManagerModel", "FK_RSInwardDetail_MaterialGoods", "MaterialGood", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AppSalesManager.Models.MaterialGood), "RSInwardDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AppSalesManager.Models.RSInwardDetail))]
+[assembly: EdmRelationshipAttribute("AppSalesManagerModel", "FK_RSInwardDetail_RSInward", "RSInward", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AppSalesManager.Models.RSInward), "RSInwardDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AppSalesManager.Models.RSInwardDetail))]
 
 #endregion
 
@@ -168,6 +170,54 @@ namespace AppSalesManager.Models
             }
         }
         private ObjectSet<User> _Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<RSInward> RSInwards
+        {
+            get
+            {
+                if ((_RSInwards == null))
+                {
+                    _RSInwards = base.CreateObjectSet<RSInward>("RSInwards");
+                }
+                return _RSInwards;
+            }
+        }
+        private ObjectSet<RSInward> _RSInwards;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<RSInwardDetail> RSInwardDetails
+        {
+            get
+            {
+                if ((_RSInwardDetails == null))
+                {
+                    _RSInwardDetails = base.CreateObjectSet<RSInwardDetail>("RSInwardDetails");
+                }
+                return _RSInwardDetails;
+            }
+        }
+        private ObjectSet<RSInwardDetail> _RSInwardDetails;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserView> UserViews
+        {
+            get
+            {
+                if ((_UserViews == null))
+                {
+                    _UserViews = base.CreateObjectSet<UserView>("UserViews");
+                }
+                return _UserViews;
+            }
+        }
+        private ObjectSet<UserView> _UserViews;
 
         #endregion
 
@@ -219,6 +269,30 @@ namespace AppSalesManager.Models
         public void AddToUsers(User user)
         {
             base.AddObject("Users", user);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RSInwards EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRSInwards(RSInward rSInward)
+        {
+            base.AddObject("RSInwards", rSInward);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RSInwardDetails EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRSInwardDetails(RSInwardDetail rSInwardDetail)
+        {
+            base.AddObject("RSInwardDetails", rSInwardDetail);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserViews(UserView userView)
+        {
+            base.AddObject("UserViews", userView);
         }
 
         #endregion
@@ -378,6 +452,28 @@ namespace AppSalesManager.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AppSalesManagerModel", "FK_RSInwardDetail_MaterialGoods", "RSInwardDetail")]
+        public EntityCollection<RSInwardDetail> RSInwardDetails
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RSInwardDetail>("AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods", "RSInwardDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RSInwardDetail>("AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods", "RSInwardDetail", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -481,6 +577,464 @@ namespace AppSalesManager.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("AppSalesManagerModel.FK_User_Role", "User", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="AppSalesManagerModel", Name="RSInward")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RSInward : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RSInward object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static RSInward CreateRSInward(global::System.Int64 id)
+        {
+            RSInward rSInward = new RSInward();
+            rSInward.ID = id;
+            return rSInward;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RSInwardNo
+        {
+            get
+            {
+                return _RSInwardNo;
+            }
+            set
+            {
+                OnRSInwardNoChanging(value);
+                ReportPropertyChanging("RSInwardNo");
+                _RSInwardNo = StructuralObject.SetValidValue(value, true, "RSInwardNo");
+                ReportPropertyChanged("RSInwardNo");
+                OnRSInwardNoChanged();
+            }
+        }
+        private global::System.String _RSInwardNo;
+        partial void OnRSInwardNoChanging(global::System.String value);
+        partial void OnRSInwardNoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Seller
+        {
+            get
+            {
+                return _Seller;
+            }
+            set
+            {
+                OnSellerChanging(value);
+                ReportPropertyChanging("Seller");
+                _Seller = StructuralObject.SetValidValue(value, true, "Seller");
+                ReportPropertyChanged("Seller");
+                OnSellerChanged();
+            }
+        }
+        private global::System.String _Seller;
+        partial void OnSellerChanging(global::System.String value);
+        partial void OnSellerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> RSInwardDate
+        {
+            get
+            {
+                return _RSInwardDate;
+            }
+            set
+            {
+                OnRSInwardDateChanging(value);
+                ReportPropertyChanging("RSInwardDate");
+                _RSInwardDate = StructuralObject.SetValidValue(value, "RSInwardDate");
+                ReportPropertyChanged("RSInwardDate");
+                OnRSInwardDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _RSInwardDate;
+        partial void OnRSInwardDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnRSInwardDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TotalAmount
+        {
+            get
+            {
+                return _TotalAmount;
+            }
+            set
+            {
+                OnTotalAmountChanging(value);
+                ReportPropertyChanging("TotalAmount");
+                _TotalAmount = StructuralObject.SetValidValue(value, "TotalAmount");
+                ReportPropertyChanged("TotalAmount");
+                OnTotalAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TotalAmount;
+        partial void OnTotalAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnTotalAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TotalVAT
+        {
+            get
+            {
+                return _TotalVAT;
+            }
+            set
+            {
+                OnTotalVATChanging(value);
+                ReportPropertyChanging("TotalVAT");
+                _TotalVAT = StructuralObject.SetValidValue(value, "TotalVAT");
+                ReportPropertyChanged("TotalVAT");
+                OnTotalVATChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TotalVAT;
+        partial void OnTotalVATChanging(Nullable<global::System.Decimal> value);
+        partial void OnTotalVATChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TotalDiscount
+        {
+            get
+            {
+                return _TotalDiscount;
+            }
+            set
+            {
+                OnTotalDiscountChanging(value);
+                ReportPropertyChanging("TotalDiscount");
+                _TotalDiscount = StructuralObject.SetValidValue(value, "TotalDiscount");
+                ReportPropertyChanged("TotalDiscount");
+                OnTotalDiscountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TotalDiscount;
+        partial void OnTotalDiscountChanging(Nullable<global::System.Decimal> value);
+        partial void OnTotalDiscountChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AppSalesManagerModel", "FK_RSInwardDetail_RSInward", "RSInwardDetail")]
+        public EntityCollection<RSInwardDetail> RSInwardDetails
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RSInwardDetail>("AppSalesManagerModel.FK_RSInwardDetail_RSInward", "RSInwardDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RSInwardDetail>("AppSalesManagerModel.FK_RSInwardDetail_RSInward", "RSInwardDetail", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="AppSalesManagerModel", Name="RSInwardDetail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RSInwardDetail : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RSInwardDetail object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static RSInwardDetail CreateRSInwardDetail(global::System.Int64 id)
+        {
+            RSInwardDetail rSInwardDetail = new RSInwardDetail();
+            rSInwardDetail.ID = id;
+            return rSInwardDetail;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value, "Amount");
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> VATAmount
+        {
+            get
+            {
+                return _VATAmount;
+            }
+            set
+            {
+                OnVATAmountChanging(value);
+                ReportPropertyChanging("VATAmount");
+                _VATAmount = StructuralObject.SetValidValue(value, "VATAmount");
+                ReportPropertyChanged("VATAmount");
+                OnVATAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _VATAmount;
+        partial void OnVATAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnVATAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> DiscountAmount
+        {
+            get
+            {
+                return _DiscountAmount;
+            }
+            set
+            {
+                OnDiscountAmountChanging(value);
+                ReportPropertyChanging("DiscountAmount");
+                _DiscountAmount = StructuralObject.SetValidValue(value, "DiscountAmount");
+                ReportPropertyChanged("DiscountAmount");
+                OnDiscountAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _DiscountAmount;
+        partial void OnDiscountAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnDiscountAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> Order
+        {
+            get
+            {
+                return _Order;
+            }
+            set
+            {
+                OnOrderChanging(value);
+                ReportPropertyChanging("Order");
+                _Order = StructuralObject.SetValidValue(value, "Order");
+                ReportPropertyChanged("Order");
+                OnOrderChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _Order;
+        partial void OnOrderChanging(Nullable<global::System.Int64> value);
+        partial void OnOrderChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AppSalesManagerModel", "FK_RSInwardDetail_MaterialGoods", "MaterialGood")]
+        public MaterialGood MaterialGood
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MaterialGood>("AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods", "MaterialGood").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MaterialGood>("AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods", "MaterialGood").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<MaterialGood> MaterialGoodReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MaterialGood>("AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods", "MaterialGood");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MaterialGood>("AppSalesManagerModel.FK_RSInwardDetail_MaterialGoods", "MaterialGood", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AppSalesManagerModel", "FK_RSInwardDetail_RSInward", "RSInward")]
+        public RSInward RSInward
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RSInward>("AppSalesManagerModel.FK_RSInwardDetail_RSInward", "RSInward").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RSInward>("AppSalesManagerModel.FK_RSInwardDetail_RSInward", "RSInward").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RSInward> RSInwardReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RSInward>("AppSalesManagerModel.FK_RSInwardDetail_RSInward", "RSInward");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RSInward>("AppSalesManagerModel.FK_RSInwardDetail_RSInward", "RSInward", value);
                 }
             }
         }
@@ -686,6 +1240,30 @@ namespace AppSalesManager.Models
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> SaleDate
+        {
+            get
+            {
+                return _SaleDate;
+            }
+            set
+            {
+                OnSaleDateChanging(value);
+                ReportPropertyChanging("SaleDate");
+                _SaleDate = StructuralObject.SetValidValue(value, "SaleDate");
+                ReportPropertyChanged("SaleDate");
+                OnSaleDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _SaleDate;
+        partial void OnSaleDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnSaleDateChanged();
 
         #endregion
 
@@ -1294,6 +1872,182 @@ namespace AppSalesManager.Models
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="AppSalesManagerModel", Name="UserView")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserView : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserView object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static UserView CreateUserView(global::System.Int64 id)
+        {
+            UserView userView = new UserView();
+            userView.ID = id;
+            return userView;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NameLogin
+        {
+            get
+            {
+                return _NameLogin;
+            }
+            set
+            {
+                OnNameLoginChanging(value);
+                ReportPropertyChanging("NameLogin");
+                _NameLogin = StructuralObject.SetValidValue(value, true, "NameLogin");
+                ReportPropertyChanged("NameLogin");
+                OnNameLoginChanged();
+            }
+        }
+        private global::System.String _NameLogin;
+        partial void OnNameLoginChanging(global::System.String value);
+        partial void OnNameLoginChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Password
+        {
+            get
+            {
+                return _Password;
+            }
+            set
+            {
+                OnPasswordChanging(value);
+                ReportPropertyChanging("Password");
+                _Password = StructuralObject.SetValidValue(value, true, "Password");
+                ReportPropertyChanged("Password");
+                OnPasswordChanged();
+            }
+        }
+        private global::System.String _Password;
+        partial void OnPasswordChanging(global::System.String value);
+        partial void OnPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true, "Email");
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                OnAddressChanging(value);
+                ReportPropertyChanging("Address");
+                _Address = StructuralObject.SetValidValue(value, true, "Address");
+                ReportPropertyChanged("Address");
+                OnAddressChanged();
+            }
+        }
+        private global::System.String _Address;
+        partial void OnAddressChanging(global::System.String value);
+        partial void OnAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ROLENAME
+        {
+            get
+            {
+                return _ROLENAME;
+            }
+            set
+            {
+                OnROLENAMEChanging(value);
+                ReportPropertyChanging("ROLENAME");
+                _ROLENAME = StructuralObject.SetValidValue(value, true, "ROLENAME");
+                ReportPropertyChanged("ROLENAME");
+                OnROLENAMEChanged();
+            }
+        }
+        private global::System.String _ROLENAME;
+        partial void OnROLENAMEChanging(global::System.String value);
+        partial void OnROLENAMEChanged();
 
         #endregion
 

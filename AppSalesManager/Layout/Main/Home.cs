@@ -209,7 +209,7 @@ namespace AppSalesManager
             //ultraSplitter1.Visible = false;
             panel6.Visible = false;
             AppSalesManagerEntities1 appSalesManagerEntities1 = new AppSalesManagerEntities1();
-            List<User> users = appSalesManagerEntities1.Users.ToList();
+            List<UserView> users = appSalesManagerEntities1.UserViews.ToList();
             ultraGrid1.DataSource = users;
             if (index != -1)
             {
